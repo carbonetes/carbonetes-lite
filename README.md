@@ -4,7 +4,7 @@
 <br/>
 <br/>
 
-# Carbonetes Lite Engine - Backend API Service of Carbonetes Lite 
+# Carbonetes Lite
 
 Carbonetes Lite is the ultimate app for connecting with our open-source technologies Jacked, Diggity, and BrainIaC. Streamline your workflows, boost productivity, and simplify collaboration by leveraging the power of these integrated OSS tools. Scan for vulnerabilities, protect sensitive information, and ensure compliance. Stay secure with Carbonetes Lite!
 
