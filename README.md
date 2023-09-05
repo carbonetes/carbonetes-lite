@@ -43,7 +43,7 @@ services:
   db:
     image: postgres:alpine3.17
     volumes:
-      - "/Users/Shared/postgresql/data/db:/var/lib/postgresql/data" #Update accordingly when running in windows os
+      - "/Users/Shared/postgresql/data/db:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
     environment:
@@ -58,21 +58,27 @@ services:
     networks:
       - internal  
   carbonetes-engine:
-    image: carbonetes/lite-carbonetes-engine:latest
-    ports:
-    - "3001:3001" 
+    image: carbonetes-engine
     restart: always
     depends_on:
       db:
         condition: service_healthy
     environment:
+      - PORT=3001 #use 8443 for https
       - HOST=localhost
       - USERNAME=username
-      - PASSWORD=password   
+      - PASSWORD=password
       - DBNAME=lite
       - DBPORT=5432
       - DBHOST=db
+      - DEBUG=true
+      - DB_LOG=false
+    ports:
+      - "3001:3001"
+      # - "8443:8443"
     healthcheck:
+      # uncomment for HTTPS
+      # test: ["CMD", "wget", "--no-verbose","--tries=1", "--spider", "--no-check-certificate", "https://host.docker.internal:8443/healthcheck"]
       test: ["CMD", "wget", "--no-verbose","--tries=1", "--spider", "http://host.docker.internal:3001/healthcheck"]
       interval: 5s
       timeout: 10s
@@ -81,8 +87,16 @@ services:
       - internal 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /Users/Shared/Carbonetes-lite/brainiac:/app/brainiac #replace with your own path
+      # uncommet for HTTPS and bind your certificate and private key to the container
+      # - type: bind
+      #   source: ./certificate.pem
+      #   target: /tls/certificate.pem
+      # - type: bind
+      #   source: ./private-key.pem
+      #   target: /tls/private-key.pem  
   web:
-    image: carbonetes/lite-web:latest
+    image: web
     ports:
     - "80:80"
     restart: always
@@ -90,10 +104,10 @@ services:
       carbonetes-engine:
         condition: service_healthy
     networks:
-    - internal   
+    - internal
 networks:
   internal:
-    driver: bridge            
+    driver: bridge          
 ```
 
 3. Modify the Docker Compose file (if necessary): Open the `docker-compose.yml` file in a text editor. If you need to modify any configuration parameters, such as volume paths or environment variables, make the necessary changes according to your requirements.
