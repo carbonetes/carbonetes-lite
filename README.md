@@ -4,7 +4,7 @@
 <br/>
 <br/>
 
-# Carbonetes Lite
+# Carbonetes Lite Engine - Backend API Service of Carbonetes Lite 
 
 Carbonetes Lite is the ultimate app for connecting with our open-source technologies Jacked, Diggity, and BrainIaC. Streamline your workflows, boost productivity, and simplify collaboration by leveraging the power of these integrated OSS tools. Scan for vulnerabilities, protect sensitive information, and ensure compliance. Stay secure with Carbonetes Lite!
 
@@ -13,6 +13,7 @@ Carbonetes Lite is the ultimate app for connecting with our open-source technolo
 
 - [Jacked](https://github.com/carbonetes/jacked)
 - [Diggity](https://github.com/carbonetes/diggity)
+- [BrainIAC](https://github.com/carbonetes/jacked)
 
 ### Features/Functionalities
 
@@ -20,17 +21,14 @@ Carbonetes Lite is the ultimate app for connecting with our open-source technolo
 - Container Registries
 
 # Coming Soon
-### Integrations
-- [BrainIAC](https://github.com/carbonetes/jacked)
 ### Features/Functionalities
-- Policy Bundles
+- Policies
 - Dashboard
 - Notifications
 # Pre-Requisites
 Make sure you have the following software installed on your system:
 - Docker: [Install Docker](https://docs.docker.com/get-docker/)
 - Docker Compose: [Install Docker Compose](https://docs.docker.com/compose/install/)
-
 
 # Installation
 
@@ -58,7 +56,7 @@ services:
     networks:
       - internal  
   carbonetes-engine:
-    image: carbonetes-engine
+    image: carbonetes/lite-carbonetes-engine
     restart: always
     depends_on:
       db:
@@ -96,7 +94,7 @@ services:
       #   source: ./private-key.pem
       #   target: /tls/private-key.pem  
   web:
-    image: web
+    image: carbonetes/lite-web
     ports:
     - "80:80"
     restart: always
