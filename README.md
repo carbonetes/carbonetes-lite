@@ -13,7 +13,7 @@ Carbonetes Lite is the ultimate app for connecting with our open-source technolo
 
 - [Jacked](https://github.com/carbonetes/jacked)
 - [Diggity](https://github.com/carbonetes/diggity)
-- [BrainIAC](https://github.com/carbonetes/jacked)
+- [BrainIAC](https://github.com/carbonetes/brainiac)
 
 ### Features/Functionalities
 
