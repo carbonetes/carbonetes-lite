@@ -19,9 +19,6 @@ Carbonetes Lite is the ultimate app for connecting with our open-source technolo
 
 - Manage Licenses
 - Container Registries
-
-# Coming Soon
-### Features/Functionalities
 - Policies
 - Dashboard
 - Notifications
