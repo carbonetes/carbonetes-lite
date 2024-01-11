@@ -1,4 +1,4 @@
-![Carbonetes](https://carbonetes-oss.s3.us-west-2.amazonaws.com/carbonetes-lite.png) 
+![Carbonetes](https://objectstorage.us-sanjose-1.oraclecloud.com/n/ax9xbtj6kqpb/b/carbonetes-oss/o/carbonetes-lite.png) 
 
 
 <br/>
